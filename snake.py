@@ -9,7 +9,7 @@ Exercises
 
 """
 
-from turtle import update, clear, ontimer, state,\
+from turtle import update, clear, ontimer,\
     setup, hideturtle, tracer, listen, onkey, done
 from random import randrange
 from freegames import square, vector
@@ -121,11 +121,6 @@ def move():
             return
     update()
     ontimer(move, 100)
-
-
-def store(key, value):
-    "Store value in state at key."
-    state[key] = value
 
 
 setup(420, 420, 370, 0)
