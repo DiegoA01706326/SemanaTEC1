@@ -67,4 +67,4 @@ for n in range(len(song)):
 
 st.insert(0, tempo.MetronomeMark(number=130))
 
-st.write('midi', fp='tetris20.mp3')
+st.write('midi', fp='tetris21.mid')
