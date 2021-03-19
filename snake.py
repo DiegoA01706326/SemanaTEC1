@@ -13,6 +13,13 @@ from turtle import update, clear, ontimer,\
     setup, hideturtle, tracer, listen, onkey, done
 from random import randrange
 from freegames import square, vector
+import pygame,random, sys, os, time
+from pygame.locals import *
+
+pygame.init()
+pygame.mixer.music.load('tetris20.mp3')
+pygame.mixer.music.play(-1)
+
 
 food = vector(0, 0)
 snake = [vector(0, 0)]

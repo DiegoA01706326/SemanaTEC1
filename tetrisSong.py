@@ -1,3 +1,8 @@
+
+"""Song tiene como objetivo generar un stream con la canción tetris,
+generando notas con distintos tonos, duraciones
+y octavas."""
+
 from music21 import note, stream, tempo
 
 st = stream.Stream()
@@ -13,6 +18,7 @@ mis = 'E#'
 sols = 'G#'
 sis = 'B#'
 
+"""Notas de cada estrofa"""
 estrofa1 = [mi, si, do, re, do, si, la, la, do, mi, re,
             do, si, do, re, mi, do, la, la, "silence"]
 estrofa2 = estrofa1 + [re, fa, la, sol, fa, mi, do, mi,
@@ -25,34 +31,38 @@ estrofa6 = estrofa5 + [re, fa, la, sol, fa, mi, do, mi, re,
                        do, si, do, re, mi, do, la, la, "silence"]
 song = estrofa6
 
-de1 = [1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2, 1/2,
-       1.5, 1/2, 1, 1, 1, 1, 1, 1]
-de2 = de1 + [1, 1/2, 1, 1/2, 1/2, 1.5, 1/2, 1, 1/2, 1/2,
-             1.5, 1/2, 1, 1, 1, 1, 1, 1]
-de3 = de2 + [2, 2, 2, 2, 2, 2, 4]
-de4 = de3 + [2, 2, 2, 2, 1, 1, 1, 1, 4]
-de5 = de4 + [1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2,
-             1/2, 1.5, 1/2, 1, 1, 1, 1, 1, 1]
-de6 = de5 + [1, 1/2, 1, 1/2, 1/2, 1.5, 1/2, 1, 1/2, 1/2, 1.5,
-             1/2, 1, 1, 1, 1, 1, 1]
-duratio = de6
+"""Duración de cada nota por estrofa"""
+duracione1 = [1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2, 1/2,
+              1.5, 1/2, 1, 1, 1, 1, 1, 1]
+duracione2 = duracione1 + [1, 1/2, 1, 1/2, 1/2, 1.5, 1/2, 1, 1/2, 1/2,
+                           1.5, 1/2, 1, 1, 1, 1, 1, 1]
+duracione3 = duracione2 + [2, 2, 2, 2, 2, 2, 4]
+duracione4 = duracione3 + [2, 2, 2, 2, 1, 1, 1, 1, 4]
+duracione5 = duracione4 + [1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2, 1/2, 1, 1/2,
+                           1/2, 1.5, 1/2, 1, 1, 1, 1, 1, 1]
+duracione6 = duracione5 + [1, 1/2, 1, 1/2, 1/2, 1.5, 1/2, 1, 1/2, 1/2, 1.5,
+                           1/2, 1, 1, 1, 1, 1, 1]
+duracion = duracione6
 
-oe1 = [5, 4, 5, 5, 5, 4, 4, 4, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
-oe2 = oe1 + [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
-oe3 = oe2 + [5, 5, 5, 4, 5, 4, 4]
-oe4 = oe3 + [5, 5, 5, 4, 5, 5, 5, 5, 5]
-oe5 = oe4 + [5, 4, 5, 5, 5, 4, 4, 4, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
-oe6 = oe5 + [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
-octv = oe6
+"""Octava de cada nota por estrofa"""
+octavae1 = [5, 4, 5, 5, 5, 4, 4, 4, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
+octavae2 = octavae1 + [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
+octavae3 = octavae2 + [5, 5, 5, 4, 5, 4, 4]
+octavae4 = octavae3 + [5, 5, 5, 4, 5, 5, 5, 5, 5]
+octavae5 = octavae4 + [5, 4, 5, 5, 5, 4, 4, 4, 5, 5, 5, 5, 4, 5, 5, 5,
+                       5, 4, 4, 1]
+octavae6 = octavae5 + [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 4, 4, 1]
+octavas = octavae6
 
+"""Creación de cada nota o silencio con sus respectivas duraciones y octavas"""
 for n in range(len(song)):
     if(song[n] == "silence"):
         silence = note.Rest()
         st.append(silence)
     else:
         new_note = note.Note(song[n])
-        new_note.duration.quarterLength = duratio[n]
-        new_note.octave = octv[n]
+        new_note.duration.quarterLength = duracion[n]
+        new_note.octave = octavas[n]
         st.append(new_note)
 
 st.insert(0, tempo.MetronomeMark(number=130))
