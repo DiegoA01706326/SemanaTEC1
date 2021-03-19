@@ -1,1 +1,0 @@
-# SemanaTEC1
