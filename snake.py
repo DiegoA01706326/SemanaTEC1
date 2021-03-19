@@ -55,7 +55,7 @@ def change(x, y):
 
 def inside(head):
     "Si la cabeza esta fuera de los limites del juego pierde."
-    return -200 < head.x < 190 and -200 < head.y < 190
+    return -201 < head.x < 191 and -201 < head.y < 190
 
 
 def move():
