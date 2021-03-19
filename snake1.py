@@ -9,7 +9,8 @@ Exercises
 
 """
 
-from turtle import *
+from turtle import update, clear, ontimer, state,\
+    setup, hideturtle, tracer, listen, onkey, done
 from random import randrange
 from freegames import square, vector
 
@@ -77,8 +78,7 @@ def move():
                 break
 
         while True:
-            if head == obs or head == obs2 \
-            or head == obs3:
+            if head == obs or head == obs2 or head == obs3:
                 obs.x = randrange(-15, 15) * 10
                 obs.y = randrange(-15, 15) * 10
                 obs2.x = randrange(-15, 15) * 10
@@ -112,23 +112,23 @@ def move():
         square((obs3.x+(10*i)), (obs3.y), 9, 'brown')
 
     for i in range(10):
-        if head == obs or head == obs2 or head == obs3 or (head.x==(obs.x+(10*i)) and head.y==obs.y) /
-        or (head.x==(obs2.x+(10*i)) and head.y==obs2.y)\
-        or (head.x==(obs3.x+(10*i)) and head.y == obs3.y) :
+        if head == obs or head == obs2 or head == obs3 or\
+            (head.x == (obs.x+(10*i)) and head.y == obs.y)\
+            or (head.x == (obs2.x+(10*i)) and head.y == obs2.y)\
+                or (head.x == (obs3.x+(10*i)) and head.y == obs3.y):
             square(head.x, head.y, 9, 'red')
             update()
             return
-    
-
     update()
     ontimer(move, 100)
+
 
 def store(key, value):
     "Store value in state at key."
     state[key] = value
 
-setup(420, 420, 370, 0)
 
+setup(420, 420, 370, 0)
 
 hideturtle()
 tracer(False)
