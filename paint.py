@@ -1,17 +1,7 @@
-"""Paint, for drawing shapes.
-
-Exercises
-
-1. Add a color.
-2. Complete circle.
-3. Complete rectangle.
-4. Complete triangle.
-5. Add width parameter.
-
-"""
-
-from turtle import *
+from turtle import up, goto, down, begin_fill, forward, left, end_fill, done
+from turtle import circle, listen, setup, onscreenclick, onkey, undo, color
 from freegames import vector
+
 
 def line(start, end):
     "Draw line from start to end."
@@ -19,6 +9,7 @@ def line(start, end):
     goto(start.x, start.y)
     down()
     goto(end.x, end.y)
+
 
 def square(start, end):
     "Draw square from start to end."
@@ -32,6 +23,7 @@ def square(start, end):
         left(90)
 
     end_fill()
+
 
 def circulo(start, end):
     "Draw circle from start to end."
@@ -60,6 +52,7 @@ def rectangle(start, end):
 
     end_fill()
 
+
 def triangle(start, end):
     "Draw triangle from start to end."
     up()
@@ -79,10 +72,10 @@ def triangle(start, end):
 
     end_fill()
 
+
 def tap(x, y):
     "Store starting point or draw shape."
     start = state['start']
-
     if start is None:
         state['start'] = vector(x, y)
     else:
@@ -91,9 +84,11 @@ def tap(x, y):
         shape(start, end)
         state['start'] = None
 
+
 def store(key, value):
     "Store value in state at key."
     state[key] = value
+
 
 state = {'start': None, 'shape': line}
 setup(420, 420, 370, 0)

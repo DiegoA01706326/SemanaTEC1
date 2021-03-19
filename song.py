@@ -36,16 +36,7 @@ for n in range(len(song)):
   new_note.duration.quarterLength = duratio[n]
   new_note.octave = octv[n]
   st.append(new_note)
-
-#st[0].duration.quarterLength = 4
-
-#for n in range(len(duratio)):
-    #st[n].duration.quarterLength = duratio[n]
-   # st[n].octave = octv[n]
-    #Fraction(duratio[i]).numerator/Fraction(duratio[i]).denominator
-
-
-#print(Fraction(duration[6]).numerator)
+  
 st.insert(0, tempo.MetronomeMark(number = 180))
 
 st.write('midi', fp ='cancion1.mid')
